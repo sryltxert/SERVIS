@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -106,3 +107,235 @@
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akhisar Servisçiler Kooperatifi</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #3A5A40;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+    header img {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      height: 60px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
+    }
+    nav {
+      background: #2D4732;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.8rem;
+      position: sticky;
+      top: 0;
+      z-index: 9;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #FFD700;
+    }
+
+    /* Hero / slider kısmı */
+    .hero {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .hero img.active {
+      opacity: 1;
+    }
+    .hero .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(58,90,64,0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .hero .overlay h2 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    .hero .overlay p {
+      font-size: 1.2rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #3A5A40;
+    }
+    footer {
+      text-align: center;
+      background: #3A5A40;
+      color: white;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #3A5A40;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .whatsapp-float:hover {
+      background-color: #588157;
+      transform: scale(1.1);
+    }
+    .whatsapp-float img {
+      width: 35px;
+      height: 35px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Kooperatif Logosu">
+    <h1>Akhisar Servisçiler Kooperatifi</h1>
+    <p>Şehrin ulaşımında güven ve kalite</p>
+  </header>
+  <nav>
+    <a href="#">Ana Sayfa</a>
+    <a href="#hakkimizda">Hakkımızda</a>
+    <a href="#hizmetler">Hizmetler</a>
+    <a href="#iletisim">İletişim</a>
+  </nav>
+
+  <div class="hero">
+    <img src="slide1.jpg" class="active" alt="Slide 1">
+    <img src="626x368_02.jpg" alt="Slide 2">
+    <img src="slide3.png" alt="Slide 3">
+    <div class="overlay">
+      <div>
+        <h2>Güvenli ve Konforlu Ulaşım</h2>
+        <p>Akhisar’da her zaman yanınızdayız</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="hakkimizda" class="card">
+      <h2>Hakkımızda</h2>
+      <p>
+        Akhisar Servisçiler Kooperatifi, yıllardır şehir içi ve şehirlerarası yolcu taşımacılığında güvenilir hizmet sunmaktadır. Modern araç filomuz ve deneyimli şoför kadromuzla yolcularımıza konforlu ulaşım sağlıyoruz. Akhisar`dan deneyimli şoförlerimiz, hosteslerimiz ve yöneticilerimiz ile deneyimli bir yolculuğun tadına varıcaksınız.
+      </p>
+    </div>
+
+    <div id="hizmetler" class="card">
+      <h2>Hizmetlerimiz</h2>
+      <ul>
+        <li>Okul servisi taşımacılığı</li>
+        <li>Personel servisi</li>
+        <li>Özel organizasyon ve gezi taşımacılığı</li>
+        <a href="https://www.instagram.com/akhisarserviscilerkoop/"><li>İnstagram: akhisarserviscilerkoop</li></a>
+      </ul>
+    </div>
+
+    <div id="iletisim" class="card">
+      <h2>İletişim</h2>
+      <p>Telefon: 0 (530) 029 20 00</p>
+      <p>Email: akhisarserviscilerkoop@gmail.com</p>
+      <p>Adres: Manisa/Akhisar, Ragıp Bey Mahallesi</p>
+    </div>
+  </div>
+
+  <a href="https://wa.me/905300292000" target="_blank" class="whatsapp-float">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Kart animasyon
+      const cards = document.querySelectorAll(".card");
+      cards.forEach((card, i) => {
+        setTimeout(() => card.classList.add("show"), i * 400);
+      });
+
+      // Slider geçişi
+      const slides = document.querySelectorAll(".hero img");
+      let current = 0;
+      function nextSlide() {
+        slides[current].classList.remove("active");
+        current = (current + 1) % slides.length;
+        slides[current].classList.add("active");
+      }
+      setInterval(nextSlide, 5000);
+    });
+  </script>
+</body>
+</html>
+>>>>>>> 9d7c95c (güncelleme)
