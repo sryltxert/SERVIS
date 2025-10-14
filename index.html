@@ -259,7 +259,39 @@
       .hero .overlay p {
         font-size: 0.9rem;
       }
-    }
+.social-links {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.social-links a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.social-links a.instagram {
+  background: #E1306C; /* Instagram mor/pembe gradient de yapabiliriz */
+  color: #fff;
+}
+
+.social-links a.instagram:hover {
+  filter: brightness(1.2);
+}
+
+.social-links a.facebook {
+  background: #1877F2; /* Facebook mavi */
+  color: #fff;
+}
+
+.social-links a.facebook:hover {
+  filter: brightness(1.2);
+}
   </style>
 </head>
 <body>
@@ -306,15 +338,22 @@
     </div>
 
     <div id="iletisim" class="card">
-      <h2>İletişim</h2>
-      <p>Telefon: 0 (530) 029 20 00</p>
-      <p>Email: akhisarserviscilerkoop@gmail.com</p>
-      <p>Adres: Manisa/Akhisar, Ragıp Bey Mahallesi</p>
-      <a href="https://www.instagram.com/akhisarserviscilerkoop/" target="_blank" style="color:#333; text-decoration:none;">İnstagram: akhisarserviscilerkoop</a>
-      <p>Outlook: akhisarserviscilerkoop@outlook.com</p>
-       <a href="https://www.facebook.com/people/Akhisarserviscilerkoop-Koop/61581359220840/?rdid=KQAdDpxOQdmZkC5C&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19gFcmYf6W%2F" target="_blank" style="color:#333; text-decoration:none;">Facebook: akhisarserviscilerkoop Koop</a>
-    </div>
+  <div id="iletisim" class="card">
+  <h2>İletişim</h2>
+  <p><strong>Telefon:</strong> 0 (530) 029 20 00</p>
+  <p><strong>Email:</strong> akhisarserviscilerkoop@gmail.com</p>
+  <p><strong>Outlook:</strong> akhisarserviscilerkoop@outlook.com</p>
+  <p><strong>Adres:</strong> Manisa/Akhisar, Ragıp Bey Mahallesi</p>
+
+  <div class="social-links">
+    <a href="https://www.instagram.com/akhisarserviscilerkoop/" target="_blank" class="instagram">
+      📸 Instagram
+    </a>
+    <a href="https://www.facebook.com/people/Akhisarserviscilerkoop-Koop/61581359220840/" target="_blank" class="facebook">
+      📘 Facebook
+    </a>
   </div>
+</div>
 
   <a href="https://wa.me/905300292000" target="_blank" class="whatsapp-float">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
