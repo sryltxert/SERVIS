@@ -1,385 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="5Ut4zgdRTFUNAIinQ28GndzScIjvdscax-u64biE1ww" />
-  <title>Akhisar Servisçiler Kooperatifi</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Akhisar Servisçiler Kooperatifi — Yeni Tasarım</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #333;
+    :root{--accent:#c8102e;--dark:#0f1724;--muted:#6b7280}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:0;color:#0b1220;background:#fff}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{background:#fff;border-bottom:1px solid #eef2f6}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:54px;width:54px;object-fit:contain;border-radius:8px}
+    .brand h1{font-size:18px;margin:0}
+    nav ul{display:flex;gap:16px;list-style:none;padding:0;margin:0}
+    nav a{color:var(--dark);text-decoration:none;font-weight:600}
+    .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;padding:48px 0;align-items:center}
+    .hero .kicker{display:inline-block;background:#fff;border-radius:999px;padding:6px 12px;font-weight:700;border:1px solid #f1d6d9;color:var(--accent)}
+    .hero h2{font-size:34px;margin:18px 0 12px}
+    .hero p{color:var(--muted);line-height:1.6}
+    .hero .actions{margin-top:18px;display:flex;gap:12px}
+    .card{background:#fff;border-radius:12px;box-shadow:0 6px 22px rgba(11,18,32,0.06);padding:20px}
+
+    /* Services */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px 0}
+    .service h3{margin:0 0 8px}
+    .service p{margin:0;color:var(--muted)}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    .contact-list{list-style:none;padding:0;margin:0}
+    .contact-list li{margin-bottom:8px}
+
+    footer{border-top:1px solid #eef2f6;padding:18px 0;margin-top:28px;color:var(--muted);font-size:14px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+      nav ul{display:none}
     }
-
-    header {
-      background: rgb(24, 34, 44);
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem 1.5rem;
-      position: relative;
-      z-index: 10;
-    }
-
-    header img {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      height: 100px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-    }
-
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.2rem;
-    }
-
-    nav {
-      background: rgb(33, 55, 77);
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      padding: 0.8rem;
-      position: sticky;
-      top: 0;
-      z-index: 9;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #FFD700;
-    }
-
-    /* Hero / slider kısmı */
-    .hero {
-      position: relative;
-      height: 60vh;
-      overflow: hidden;
-    }
-
-    .hero img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-
-    .hero img.active {
-      opacity: 1;
-    }
-
-    .hero .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      padding: 0 1rem;
-    }
-
-    .hero .overlay h2 {
-      font-size: 2.5rem;
-      margin: 0;
-    }
-
-    .hero .overlay p {
-      font-size: 1.2rem;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .card {
-      background: white;
-      border-radius: 10px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
-    }
-
-    .card.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      color: rgb(24, 34, 44);
-    }
-
-    footer {
-      text-align: center;
-      background: rgb(24, 34, 44);
-      color: white;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-
-    .whatsapp-float {
-      position: fixed;
-      width: 60px;
-      height: 60px;
-      bottom: 20px;
-      right: 20px;
-      background-color: rgb(24, 34, 44);
-      color: white;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 30px;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: transform 0.3s, background 0.3s;
-    }
-
-    .whatsapp-float:hover {
-      background-color: #1ebea5;
-      transform: scale(1.1);
-    }
-
-    .whatsapp-float img {
-      width: 35px;
-      height: 35px;
-    }
-
-    /* Mobil düzenler */
-    @media (max-width: 768px) {
-      header img {
-        height: 70px;
-        left: 50%;
-        transform: translateX(-50%);
-        top: 10px;
-      }
-
-      header h1 {
-        font-size: 1.5rem;
-        margin-top: 90px;
-      }
-
-      header p {
-        font-size: 1rem;
-      }
-
-      /* Menü 2x2 düzen */
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        padding: 1rem 0;
-      }
-
-      nav a {
-        flex: 0 1 45%;
-        text-align: center;
-        background: rgb(33, 55, 77);
-        padding: 0.8rem 0;
-        border-radius: 5px;
-      }
-
-      .hero {
-        height: 40vh;
-      }
-
-      .hero .overlay h2 {
-        font-size: 1.5rem;
-      }
-
-      .hero .overlay p {
-        font-size: 1rem;
-      }
-
-      .container {
-        padding: 0 1rem;
-      }
-
-      .card {
-        padding: 1rem;
-      }
-
-      .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 15px;
-        right: 15px;
-      }
-
-      .whatsapp-float img {
-        width: 28px;
-        height: 28px;
-      }
-    }
-
-    /* 480px altı */
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 1.3rem;
-      }
-
-      nav a {
-        font-size: 0.9rem;
-      }
-
-      .hero {
-        height: 35vh;
-      }
-
-      .hero .overlay h2 {
-        font-size: 1.2rem;
-      }
-
-      .hero .overlay p {
-        font-size: 0.9rem;
-      }
-    }
-    .social-links {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.social-links a {
-  color: #333;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: all 0.3s;
-}
-
-.social-links a.instagram {
-  background: #921841; /* Instagram mor/pembe gradient de yapabiliriz */
-  color: #fff;
-}
-
-.social-links a.instagram:hover {
-  filter: brightness(1.2);
-}
-
-.social-links a.facebook {
-  background: #1d2c41; /* Facebook mavi */
-  color: #fff;
-}
-
-.social-links a.facebook:hover {
-  filter: brightness(1.2);
-}
+    @media (max-width:520px){.services{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png.jpg" alt="Kooperatif Logosu">
-    <h1>Akhisar Servisçiler Kooperatifi</h1>
-    <p>Şehrin ulaşımında güven ve kalite</p>
+    <div class="container nav">
+      <div class="brand">
+        <img src="/assets/logo.png" alt="Kooperatif Logo (yer tutucu)" />
+        <div>
+          <h1>Akhisar Servisçiler Kooperatifi</h1>
+          <div style="font-size:12px;color:var(--muted)">Şehrin ulaşımında güven ve kalite</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#anasayfa">Ana Sayfa</a></li>
+          <li><a href="#hakkimizda">Hakkımızda</a></li>
+          <li><a href="#hizmetler">Hizmetler</a></li>
+          <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#iletisim">Rezervasyon / İletişim</a>
+    </div>
   </header>
 
-  <nav>
-    <a href="#">Ana Sayfa</a>
-    <a href="#hakkimizda">Hakkımızda</a>
-    <a href="#hizmetler">Hizmetler</a>
-    <a href="#iletisim">İletişim</a>
-  </nav>
-
-  <div class="hero">
-    <img src="slide1.jpg" class="active" alt="Slide 1">
-    <img src="626x368_02.jpg" alt="Slide 2">
-    <img src="slide3.png" alt="Slide 3">
-    <div class="overlay">
+  <main class="container">
+    <section id="anasayfa" class="hero">
       <div>
-        <h2>Güvenli ve Konforlu Ulaşım</h2>
-        <p>Akhisar’da her zaman yanınızdayız</p>
+        <span class="kicker">Güvenli &amp; Konforlu</span>
+        <h2>Akıllı güzergah, dakik servis — Akhisar'ın tercih ettiği taşıma kooperatifi</h2>
+        <p>Modern araç filomuz ve deneyimli şoförlerimizle okul servislerinden personel taşımacılığına, gezilerden özel organizasyonlara kadar kapsamlı hizmet veriyoruz.</p>
+        <div class="actions">
+          <a class="cta" href="#iletisim">Hemen Rezervasyon Yap</a>
+          <a href="#hizmetler" style="padding:10px 14px;border-radius:10px;border:1px solid #e6eef4;text-decoration:none;font-weight:700">Hizmetlerimiz</a>
+        </div>
+        <div style="margin-top:18px" class="card">
+          <strong>Telefon:</strong> 0 (530) 029 20 00<br>
+          <strong>Email:</strong> akhisarserviscilerkoop@gmail.com
+        </div>
       </div>
-    </div>
-  </div>
+      <div class="card">
+        <!-- Carousel placeholder; replace with real images -->
+        <div style="height:260px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#f8fafc,#eef2f6);border-radius:10px">
+          <div style="text-align:center">
+            <img src="/assets/bus-illustration.svg" alt="Araç görseli" style="width:220px;opacity:0.95"/>
+            <div style="margin-top:12px;color:var(--muted)">Araç filomuzdan görüntüler</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:12px">
+          <div style="flex:1;text-align:center;padding:12px;border-radius:8px;background:#fff;border:1px solid #f1f5f9">Okul Servisi</div>
+          <div style="flex:1;text-align:center;padding:12px;border-radius:8px;background:#fff;border:1px solid #f1f5f9">Personel Taşımacılığı</div>
+        </div>
+      </div>
+    </section>
 
-  <div class="container">
-    <div id="hakkimizda" class="card">
-      <h2>Hakkımızda</h2>
-      <p>
-        Akhisar Servisçiler Kooperatifi, yıllardır şehir içi ve şehirlerarası yolcu taşımacılığında güvenilir hizmet sunmaktadır. Modern araç filomuz ve deneyimli şoför kadromuzla yolcularımıza konforlu ulaşım sağlıyoruz.
-      </p>
-    </div>
+    <section id="hakkimizda">
+      <div class="card" style="padding:22px;margin-top:18px">
+        <h2>Hakkımızda</h2>
+        <p style="color:var(--muted)">Akhisar Servisçiler Kooperatifi, yıllardır şehir içi ve şehirlerarası yolcu taşımacılığında güvenilir hizmet sunuyor. Profesyonel sürücülerimiz ve bakımlı araç filomuz ile önceliğimiz yolcu güvenliği ve zamanında hizmettir.</p>
+      </div>
+    </section>
 
-    <div id="hizmetler" class="card">
-      <h2>Hizmetlerimiz</h2>
-      <ul>
-        <li>Okul servisi taşımacılığı</li>
-        <li>Personel servisi</li>
-        <li>Özel organizasyon ve gezi taşımacılığı</li>
-      </ul>
-    </div>
+    <section id="hizmetler">
+      <h2 style="margin-top:18px">Hizmetlerimiz</h2>
+      <div class="services">
+        <div class="card service">
+          <h3>Okul Servisi</h3>
+          <p>Güvenli, sigortalı ve rotası belirlenmiş öğrenci taşımacılığı.</p>
+        </div>
+        <div class="card service">
+          <h3>Personel Taşımacılığı</h3>
+          <p>Firmalara özel planlama ile personel ulaşımı. Toplu taşıma düzenlemeleri ve vardiya servisleri.</p>
+        </div>
+        <div class="card service">
+          <h3>Özel Organizasyon</h3>
+          <p>Gezi ve etkinlik taşımacılığı; şoförlü araç kiralama hizmetleri.</p>
+        </div>
+      </div>
+    </section>
 
-   <div id="iletisim" class="card">
-  <h2>İletişim</h2>
-  <p><strong>Telefon:</strong> 0 (530) 029 20 00</p>
-  <p><strong>Email:</strong> akhisarserviscilerkoop@gmail.com</p>
-  <p><strong>Outlook:</strong> akhisarserviscilerkoop@outlook.com</p>
-  <p><strong>Adres:</strong> Manisa/Akhisar, Ragıp Bey Mahallesi 15 Sokak No 58/B </p>
+    <section id="iletisim" style="margin-top:8px">
+      <h2>İletişim</h2>
+      <div class="contact-grid">
+        <div class="card">
+          <p style="margin-top:0;color:var(--muted)">Bize ulaşın veya rezervasyon talebi gönderin.</p>
+          <ul class="contact-list">
+            <li><strong>Telefon:</strong> 0 (530) 029 20 00</li>
+            <li><strong>Email:</strong> akhisarserviscilerkoop@gmail.com</li>
+            <li><strong>Adres:</strong> Manisa/Akhisar, Ragıp Bey Mahallesi 15 Sokak No 58/B</li>
+          </ul>
+          <form style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+            <input placeholder="İsim" required style="padding:10px;border-radius:8px;border:1px solid #e6eef4" />
+            <input placeholder="Telefon veya Email" required style="padding:10px;border-radius:8px;border:1px solid #e6eef4" />
+            <textarea placeholder="Mesajınız" rows="4" style="padding:10px;border-radius:8px;border:1px solid #e6eef4"></textarea>
+            <button type="submit" style="padding:10px;border-radius:10px;background:var(--accent);color:#fff;border:none;font-weight:700">Gönder</button>
+          </form>
+        </div>
+        <div class="card">
+          <!-- Embed map placeholder -->
+          <div style="height:320px;border-radius:8px;overflow:hidden;background:#f8fafc;display:flex;align-items:center;justify-content:center;color:var(--muted)">Harita alanı (Google Maps iframe ile değiştirin)</div>
+          <div style="margin-top:12px;font-size:14px;color:var(--muted)">
+            <strong>Sosyal</strong><br>
+            <a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div class="social-links">
-    <a href="https://www.instagram.com/akhisarserviscilerkoop/" target="_blank" class="instagram">
-      📸 Instagram
-    </a>
-    <a href="https://www.facebook.com/people/Akhisarserviscilerkoop-Koop/61581359220840/" target="_blank" class="facebook">
-      📘 Facebook
-    </a>
-  </div>
-</div>
-
-  <a href="https://wa.me/905300292000" target="_blank" class="whatsapp-float">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-  </a>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const cards = document.querySelectorAll(".card");
-      cards.forEach((card, i) => {
-        setTimeout(() => card.classList.add("show"), i * 400);
-      });
-
-      const slides = document.querySelectorAll(".hero img");
-      let current = 0;
-      function nextSlide() {
-        slides[current].classList.remove("active");
-        current = (current + 1) % slides.length;
-        slides[current].classList.add("active");
-      }
-      setInterval(nextSlide, 5000);
-    });
-  </script>
+  </main>
 
   <footer>
-    <p>&copy; SRYLTxERT</p>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between">
+      <div>© <strong>Akhisar Servisçiler Kooperatifi</strong> — Tüm hakları saklıdır.</div>
+      <div style="font-size:13px;color:var(--muted)">Geliştirildi: SRYLTxERT</div>
+    </div>
   </footer>
+
+  <script>
+    // Küçük JS: form submit davranışı (örnek)
+    document.querySelectorAll('form').forEach(f=>{
+      f.addEventListener('submit',e=>{
+        e.preventDefault();
+        alert('Form gönderildi (örnek). Sunucuya bağlayın veya AJAX ekleyin.');
+        f.reset();
+      });
+    });
+  </script>
 </body>
 </html>
