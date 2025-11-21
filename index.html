@@ -138,12 +138,15 @@
             <li><strong>Email:</strong> akhisarserviscilerkoop@gmail.com</li>
             <li><strong>Adres:</strong> Manisa/Akhisar, Ragıp Bey Mahallesi 15 Sokak No 58/B</li>
           </ul>
-          <form style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
-            <input placeholder="İsim" required style="padding:10px;border-radius:8px;border:1px solid #e6eef4" />
-            <input placeholder="Telefon veya Email" required style="padding:10px;border-radius:8px;border:1px solid #e6eef4" />
-            <textarea placeholder="Mesajınız" rows="4" style="padding:10px;border-radius:8px;border:1px solid #e6eef4"></textarea>
-            <button type="submit" style="padding:10px;border-radius:10px;background:var(--accent);color:#fff;border:none;font-weight:700">Gönder</button>
-          </form>
+         <form action="mailto:seninmailin@ornek.com" method="POST" enctype="text/plain" style="display:flex;flex-direction:column;gap:10px;width:300px;">
+  <input type="text" name="İsim" placeholder="İsim" required style="padding:10px;border:1px solid #ccc;border-radius:8px;">
+  <input type="text" name="İletişim" placeholder="Telefon veya Email" required style="padding:10px;border:1px solid #ccc;border-radius:8px;">
+  <textarea name="Mesaj" placeholder="Mesajınız" rows="4" style="padding:10px;border:1px solid #ccc;border-radius:8px;"></textarea>
+  <button type="submit" style="padding:10px;border:none;background:#c8102e;color:#fff;border-radius:8px;font-weight:bold;">
+    Gönder
+  </button>
+</form>
+
         </div>
         <div class="card">
           <!-- Embed map placeholder -->
